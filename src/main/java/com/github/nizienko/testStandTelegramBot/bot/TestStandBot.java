@@ -11,14 +11,15 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
  */
 public class TestStandBot extends TelegramLongPollingBot {
     private final static String BOT_NAME = "YamoneyTestStandBot";
-    private final static String BOT_TOKEN = "248025677:AAFEdk4cyAH2fTMlJAeQehM7EKdnK4biut4";
+    private final static String BOT_TOKEN = "xxx";
     private final MessageHandler messageHandler = new TestStandMessageHandler();
     private final UsersWhiteList whiteList = new SimpleUserWhiteList();
+
     public void onUpdateReceived(Update update) {
         System.out.println(update);
         if(update.hasMessage()){
             Message message = update.getMessage();
-            //check if the message has text. it could also contain for example a location ( message.hasLocation() )
+
             if(message.hasText()){
                 if (whiteList.isAllowed(message.getFrom().getId())) {
                     sendAnswer(message.getChatId(), messageHandler.process(message));
