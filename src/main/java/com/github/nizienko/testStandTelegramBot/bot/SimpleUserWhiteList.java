@@ -1,6 +1,7 @@
 package com.github.nizienko.testStandTelegramBot.bot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,10 +9,14 @@ import java.util.List;
  */
 public class SimpleUserWhiteList implements UsersWhiteList {
     private static List<Integer> whiteList = new ArrayList<Integer>();
+    private static Integer[] ids = {
+            164009017,
+            209106005,
+            164979103
+    };
 
     public SimpleUserWhiteList(){
-        whiteList.add(164009017);
-        whiteList.add(209106005);
+        whiteList.addAll(Arrays.asList(ids));
     }
     public boolean isAllowed(Integer userId) {
         return whiteList.contains(userId);
