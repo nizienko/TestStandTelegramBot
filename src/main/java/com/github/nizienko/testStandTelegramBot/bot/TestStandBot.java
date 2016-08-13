@@ -20,7 +20,7 @@ public class TestStandBot extends TelegramLongPollingBot {
             Message message = update.getMessage();
             //check if the message has text. it could also contain for example a location ( message.hasLocation() )
             if(message.hasText()){
-                if (whiteList.isAllowed(message.getFrom().getUserName())) {
+                if (whiteList.isAllowed(message.getFrom().getId())) {
                     sendAnswer(message.getChatId(), messageHandler.process(message));
                 }
                 else {

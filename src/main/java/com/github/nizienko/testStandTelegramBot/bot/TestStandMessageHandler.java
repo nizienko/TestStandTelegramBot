@@ -7,6 +7,6 @@ import org.telegram.telegrambots.api.objects.Message;
  */
 public class TestStandMessageHandler implements MessageHandler {
     public String process(Message message) {
-        return "Hello";
+        return "Hello " + message.getFrom().getFirstName();
     }
 }
