@@ -16,9 +16,8 @@ public class HelpCommand extends AbstractTelegramCommand {
     }
 
     public String execute(Message message) {
-        return "Получить пользователя:\n" +
-                "/user {host}\n" +
-                "example: '/user isla'";
+        return "/user - достать/создать пользователя\n" +
+                "/host - занять хост\n";
     }
 
     public String getDescription() {

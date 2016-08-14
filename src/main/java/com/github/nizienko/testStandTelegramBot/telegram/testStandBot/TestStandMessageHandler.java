@@ -21,16 +21,24 @@ public class TestStandMessageHandler implements MessageHandler {
     @Autowired
     private TelegramCommandStorage commandStorage;
 
+    @Autowired
+    private UserWhiteList whiteList;
+
     public String process(Message message) {
         try {
             Command command = commandStorage.get(message.getText());
-            return command.execute(message);
+            if (whiteList.isAllowed(message.getFrom().getId(), command.getRole())) {
+                return command.execute(message);
+            }
+            else {
+                return String.format("Нет доступа для %s(%d)", message.getFrom().getFirstName(), message.getFrom().getId());
+            }
         }
         catch (UnknownCommandException e) {
             return "Привет,  " + message.getFrom().getFirstName() + "\nНабери '/help'";
         }
         catch (BadCommandSyntaxException e) {
-            return String.format("Что-то не так\n%s", e.getMessage());
+            return String.format("Что-то не так. Описание команды:\n%s", e.getMessage());
         }
     }
 }

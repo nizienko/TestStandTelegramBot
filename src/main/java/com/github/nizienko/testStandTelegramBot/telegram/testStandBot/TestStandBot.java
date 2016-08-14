@@ -22,9 +22,6 @@ public class TestStandBot extends TelegramLongPollingBot implements TelegramBot 
     @Autowired
     private MessageHandler messageHandler;
 
-    @Autowired
-    private UsersWhiteList whiteList;
-
     private String botName;
     private String botToken;
 
@@ -37,14 +34,8 @@ public class TestStandBot extends TelegramLongPollingBot implements TelegramBot 
         LOG.info(update.toString());
         if(update.hasMessage()){
             Message message = update.getMessage();
-
             if(message.hasText()){
-                if (whiteList.isAllowed(message.getFrom().getId())) {
-                    sendMessage(message.getChatId(), messageHandler.process(message));
-                }
-                else {
-                    sendMessage(message.getChatId(), String.format("Нет доступа для id=%d", message.getFrom().getId()));
-                }
+                sendMessage(message.getChatId(), messageHandler.process(message));
             }
         }
     }

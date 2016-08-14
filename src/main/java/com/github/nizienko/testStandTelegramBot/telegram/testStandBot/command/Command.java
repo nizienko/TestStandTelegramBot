@@ -9,4 +9,5 @@ public interface Command {
     String getCommandName();
     String execute(Message message);
     String getDescription();
+    PermissionLevel getRole();
 }

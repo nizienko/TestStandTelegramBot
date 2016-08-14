@@ -1,9 +1,7 @@
 package com.github.nizienko.testStandTelegramBot.telegram.testStandBot.command;
 
-import com.github.nizienko.testStandTelegramBot.telegram.testStandBot.TestStandMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.objenesis.instantiator.sun.MagicInstantiator;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

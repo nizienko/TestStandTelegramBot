@@ -7,4 +7,5 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
  */
 public interface TelegramBot {
     TelegramLongPollingBot getLongPollingBot();
+    void sendMessage(Long chatId, String text);
 }

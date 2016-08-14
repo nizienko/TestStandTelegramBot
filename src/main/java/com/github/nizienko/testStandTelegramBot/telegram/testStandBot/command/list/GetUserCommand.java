@@ -3,7 +3,6 @@ package com.github.nizienko.testStandTelegramBot.telegram.testStandBot.command.l
 import com.github.nizienko.testStandTelegramBot.telegram.testStandBot.command.AbstractTelegramCommand;
 import com.github.nizienko.testStandTelegramBot.telegram.testStandBot.command.BadCommandSyntaxException;
 import com.github.nizienko.testStandTelegramBot.telegram.testStandBot.command.TelegramCommand;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.api.objects.Message;
 
 /**
@@ -19,7 +18,7 @@ public class GetUserCommand extends AbstractTelegramCommand {
     }
 
     public String execute(Message message) {
-        String[] args = message.getText().split(" ");
+        String[] args = message.getText().replaceAll("[\\s]{2,}", " ").split(" ");
         if (args.length < 2) {
             throw new BadCommandSyntaxException(this);
         }
