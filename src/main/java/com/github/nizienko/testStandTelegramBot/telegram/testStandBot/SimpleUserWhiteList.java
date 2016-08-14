@@ -1,4 +1,6 @@
-package com.github.nizienko.testStandTelegramBot.bot;
+package com.github.nizienko.testStandTelegramBot.telegram.testStandBot;
+
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,12 +9,15 @@ import java.util.List;
 /**
  * Created by def on 13.08.16.
  */
+
+@Service
 public class SimpleUserWhiteList implements UsersWhiteList {
-    private static List<Integer> whiteList = new ArrayList<Integer>();
-    private static Integer[] ids = {
+    private List<Integer> whiteList = new ArrayList<Integer>();
+    private Integer[] ids = {
             164009017,
             209106005,
-            164979103
+            164979103,
+            57602516
     };
 
     public SimpleUserWhiteList(){

@@ -1,4 +1,4 @@
-package com.github.nizienko.testStandTelegramBot.bot;
+package com.github.nizienko.testStandTelegramBot.telegram.testStandBot;
 
 
 /**
