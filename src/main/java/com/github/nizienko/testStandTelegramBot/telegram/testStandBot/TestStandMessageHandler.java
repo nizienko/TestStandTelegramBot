@@ -35,10 +35,10 @@ public class TestStandMessageHandler implements MessageHandler {
             }
         }
         catch (UnknownCommandException e) {
-            return "Привет,  " + message.getFrom().getFirstName() + "\nНабери '/help'";
+            return "Привет, " + message.getFrom().getFirstName() + "\nнабери '/help'";
         }
         catch (BadCommandSyntaxException e) {
-            return String.format("Что-то не так. Описание команды:\n%s", e.getMessage());
+            return String.format("Описание команды:\n%s", e.getMessage());
         }
     }
 }
